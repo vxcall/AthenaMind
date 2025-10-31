@@ -1,13 +1,12 @@
 roocode must be following the rules mentioned in this file.
 
+Write code that adheres to the existing codebase's conventions, and separate presentation and logic responsibilities into components.
+Prioritize readability and write beautiful code.
+
+Please keep comments to a minimum
+
 /docs directory is supposed to be the accumulated document for AI about entire architecture and specifications.
 When you drastically change architecture or specifications, write it down to markdown in /docs. either creating files or not is up to you. 
 I recomment writing general architecture in a file and smaller specification into files that has names of them.
 BUT note that writing docs only when you've applied real change on codes are allowed. plan and suggestion doesnt have to be written.
-
 By reading docs u can grasp them.
-
-Write code that adheres to the existing codebase's conventions, and separate presentation and logic responsibilities into components.
-Prioritize readability and write beautiful code.
-
-Please keep comments to a minimum.

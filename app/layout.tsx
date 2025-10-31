@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
 	title: "AthenaMind",
-	description: "AI-powered application built with Next.js and OpenRouter",
+	description: "AI Trading Simulation of Tokyo Stock Market",
 };
 
 export default function RootLayout({
