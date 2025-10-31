@@ -10,9 +10,12 @@ services:
       - NODE_ENV=production
       - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
       - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL:-http://localhost:3001}
+      - DATABASE_URL=${DATABASE_URL}
     env_file:
       - .env
     restart: unless-stopped
+    depends_on:
+      - postgres
     networks:
       - athenamind-network
 
@@ -30,12 +33,36 @@ services:
       - NODE_ENV=development
       - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
       - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL:-http://localhost:3001}
+      - DATABASE_URL=${DATABASE_URL}
     env_file:
       - .env
     command: sh -c "bun install && bun run dev"
     restart: unless-stopped
+    depends_on:
+      - postgres
     networks:
       - athenamind-network
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: athenamind-postgres
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB:-athenamind}
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    env_file:
+      - .env
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    restart: unless-stopped
+    networks:
+      - athenamind-network
+
+volumes:
+  postgres_data:
 
 networks:
   athenamind-network:
