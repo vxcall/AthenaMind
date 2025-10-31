@@ -1,0 +1,42 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: athenamind-app
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+      - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL:-http://localhost:3001}
+    env_file:
+      - .env
+    restart: unless-stopped
+    networks:
+      - athenamind-network
+
+  dev:
+    image: oven/bun:1-alpine
+    container_name: athenamind-dev
+    working_dir: /app
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+      - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL:-http://localhost:3001}
+    env_file:
+      - .env
+    command: sh -c "bun install && bun run dev"
+    restart: unless-stopped
+    networks:
+      - athenamind-network
+
+networks:
+  athenamind-network:
+    driver: bridge
