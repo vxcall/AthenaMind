@@ -5,3 +5,8 @@ When you drastically change architecture or specifications, write it down to mar
 I recomment writing general architecture in a file and smaller specification into files that has names of them.
 
 By reading docs u can grasp them.
+
+Write code that adheres to the existing codebase's conventions, and separate presentation and logic responsibilities into components.
+Prioritize readability and write beautiful code.
+
+Please keep comments to a minimum.
