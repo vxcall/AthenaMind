@@ -37,7 +37,7 @@ Edit `.env` and add your OpenRouter API key:
 
 ```env
 OPENROUTER_API_KEY=your_actual_api_key_here
-NEXT_PUBLIC_APP_URL=http://localhost:3000
+NEXT_PUBLIC_APP_URL=http://localhost:3001
 ```
 
 ### 3. Run Development Server
@@ -46,7 +46,7 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the application.
+Open [http://localhost:3001](http://localhost:3001) to view the application.
 
 ## Docker Development
 
@@ -59,7 +59,7 @@ docker compose up dev
 This will:
 - Install dependencies automatically
 - Mount your local code for hot-reload
-- Run the development server on port 3000
+- Run the development server on port 3001
 
 ### Build and Run Production Container
 
