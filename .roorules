@@ -3,6 +3,7 @@ roocode must be following the rules mentioned in this file.
 /docs directory is supposed to be the accumulated document for AI about entire architecture and specifications.
 When you drastically change architecture or specifications, write it down to markdown in /docs. either creating files or not is up to you. 
 I recomment writing general architecture in a file and smaller specification into files that has names of them.
+BUT note that writing docs only when you've applied real change on codes are allowed. plan and suggestion doesnt have to be written.
 
 By reading docs u can grasp them.
 
